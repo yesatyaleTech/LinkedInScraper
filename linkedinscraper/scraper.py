@@ -2,21 +2,21 @@ from .person import Person
 from typing import List
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
-from time import time
+import time
 
 class LinkedInScraper:
 
-    def __init__(self, username: str, password: str, querys: str, school: str, driverpath: str):
+    def __init__(self, username: str, password: str, query: str, school: str, driverpath: str):
         self.username: str  = username
         self.password: str  = password
-        self.querys: str  = querys
+        self.query: str  = query
         self.school: str =  school
         self.browserdriver = webdriver.Chrome(driverpath)
         self.people = List[Person]
         self.login()
 
     def login(self):
-        linkedinurl = 'https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin'
+        linkedinurl = 'https://www.linkedin.com/login'
         self.browserdriver.get(linkedinurl)
         loginuser = self.browserdriver.find_element_by_id('username')
         loginuser.send_keys(self.username)

@@ -1,0 +1,4 @@
+chromedriver.*
+chromedriver
+.vscode/
+linkedinscraper/__pycache__
